@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BetterFormatter Configurator</title><!-- v2 -->
+<title>Nuvio Formatter Configurator</title><!-- v2 -->
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0a;color:#fff;min-height:100vh}
@@ -42,7 +42,7 @@ h1{font-size:1.5rem;font-weight:800;margin-bottom:.2rem}
 .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#4ade80;padding:.5rem 1rem;border-radius:8px;font-size:.78rem;display:none;z-index:99;border:1px solid #2a2a2a}
 </style></head><body>
 <div class="wrap">
-<h1>BetterFormatter</h1>
+<h1>Nuvio Formatter</h1>
 <p class="sub">Configure your Fusion stream tags, preview, and export.</p>
 
 <div class="sec"><h2>Icon Style</h2><div class="opts" data-g="icon">
@@ -70,6 +70,13 @@ h1{font-size:1.5rem;font-weight:800;margin-bottom:.2rem}
 <div class="sec"><h2>Description</h2><div class="opts" data-g="desc">
 <div class="o on" data-v="short">Service + Filename</div>
 <div class="o" data-v="fn">Filename Only</div>
+</div></div>
+
+<div class="sec"><h2>Source &amp; Language Badges</h2>
+<p style="font-size:.72rem;color:#666;margin-bottom:.6rem">Adds RD cached / RD downloading icons + language flags to the Fusion import.</p>
+<div class="opts" data-g="src">
+<div class="o on" data-v="off">Off</div>
+<div class="o" data-v="on">Include RD + Flags</div>
 </div></div>
 
 <h2 class="pvh">Preview</h2>
@@ -113,8 +120,10 @@ h1{font-size:1.5rem;font-weight:800;margin-bottom:.2rem}
 <div class="toast" id="toast">Copied!</div>
 
 <script>
-const I='https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/';
-let C={icon:'colored',qual:'bgb',dv:'combo',hdr:'nodv',desc:'short'};
+const I='https://raw.githubusercontent.com/mariusandrita/Nuvio/main/images/';
+const FUSION_FULL='https://raw.githubusercontent.com/mariusandrita/Nuvio/main/fusion-tags.json';
+const PRESET_BASE='https://raw.githubusercontent.com/mariusandrita/Nuvio/main/presets/';
+let C={icon:'colored',qual:'bgb',dv:'combo',hdr:'nodv',desc:'short',src:'off'};
 
 const ST={
   best:{bc:'#FF00FF37',bg:'#E600E932',tc:'#27C04F'},
@@ -164,6 +173,9 @@ function preview(){
   for(const s of STREAMS){
     const st=(s.type||'debrid');const stCap=st==='p2p'?'P2P':st[0].toUpperCase()+st.slice(1);const descTxt=C.desc==='fn'?s.fn:s.fn+'\n'+(s.svc||'RD')+' \xb7 '+stCap+' \xb7 '+s.size;
     h+='<div class="cd"><div class="cn">'+fmtName(s)+'</div><div class="cs">'+descTxt+'</div><div class="tr">';
+
+    // 0) SOURCE (RD) — when source badges enabled
+    if(C.src==='on'){h+=thtml(null,'rd-logo.png',ST.tr,true);}
 
     // 1) QUALITY
     if(C.qual==='bgb'){
@@ -357,7 +369,9 @@ function upd(){
   const f=fmt();
   document.getElementById('on').value=f.n;
   document.getElementById('od').value=f.d;
-  const url='https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/presets/'+C.icon+'-'+C.qual+'-'+C.dv+'-'+C.hdr+'.json';
+  const url=C.src==='on'
+    ? FUSION_FULL
+    : PRESET_BASE+C.icon+'-'+C.qual+'-'+C.dv+'-'+C.hdr+'.json';
   document.getElementById('ou').value=url;
   // Show/hide AIOStreams section + update guide based on quality mode
   const needsAIOS=C.qual==='bgb'||C.qual==='pct';

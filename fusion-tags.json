@@ -27,10 +27,19 @@
       "type": "filter"
     },
     {
+      "id": "bf-src-torrent",
+      "groupId": "bf-source",
+      "pattern": "\\[TORRENT🧲\\]|\\bTORRENT\\b",
+      "imageURL": "https://raw.githubusercontent.com/mariusandrita/Nuvio/main/images/down-icon.png",
+      "tagColor": "#1a1a2e",
+      "borderColor": "#4a9eff",
+      "textColor": "#ffffff",
+      "tagStyle": "rounded"
+    },
+    {
       "borderColor": "#FF00FF37",
       "groupId": "bf-quality",
       "id": "bf-best",
-      "imageURL": "https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/best.png",
       "isEnabled": true,
       "name": "Best",
       "pattern": "♛",
@@ -43,7 +52,6 @@
       "borderColor": "#FF2D9943",
       "groupId": "bf-quality",
       "id": "bf-good",
-      "imageURL": "https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/good.png",
       "isEnabled": true,
       "name": "Good",
       "pattern": "[⭑✦]",
@@ -56,7 +64,6 @@
       "borderColor": "#FF9D613D",
       "groupId": "bf-quality",
       "id": "bf-bad",
-      "imageURL": "https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/Bad.png",
       "isEnabled": true,
       "name": "Bad",
       "pattern": "[△∅]",

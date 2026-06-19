@@ -27,6 +27,32 @@
       "type": "filter"
     },
     {
+      "id": "bf-src-torbox-cached",
+      "groupId": "bf-source",
+      "pattern": "\\[TB⚡",
+      "imageURL": "https://raw.githubusercontent.com/mariusandrita/Nuvio/main/images/torbox-logo.png",
+      "isEnabled": true,
+      "name": "TB⚡",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000",
+      "textColor": "#FFFFFF",
+      "tagStyle": "filled and bordered",
+      "type": "filter"
+    },
+    {
+      "id": "bf-src-torbox-uncached",
+      "groupId": "bf-source",
+      "pattern": "\\[TB⬇|\\[TB⏳",
+      "imageURL": "https://raw.githubusercontent.com/mariusandrita/Nuvio/main/images/torbox-logo.png",
+      "isEnabled": true,
+      "name": "TB⬇",
+      "tagColor": "#00000000",
+      "borderColor": "#00000000",
+      "textColor": "#FFFFFF",
+      "tagStyle": "filled and bordered",
+      "type": "filter"
+    },
+    {
       "id": "bf-src-torrent",
       "groupId": "bf-source",
       "pattern": "\\[TORRENT|(?i)^Torrentio",

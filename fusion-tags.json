@@ -43,7 +43,7 @@
       "id": "bf-src-torbox-uncached",
       "groupId": "bf-source",
       "pattern": "\\[TB⬇|\\[TB⏳",
-      "imageURL": "https://raw.githubusercontent.com/mariusandrita/Nuvio/main/images/down-icon.png",
+      "imageURL": "",
       "isEnabled": true,
       "name": "❌ TB",
       "tagColor": "#4a0000",

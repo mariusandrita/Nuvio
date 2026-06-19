@@ -43,11 +43,11 @@
       "id": "bf-src-torbox-uncached",
       "groupId": "bf-source",
       "pattern": "\\[TB⬇|\\[TB⏳",
-      "imageURL": "https://raw.githubusercontent.com/mariusandrita/Nuvio/main/images/torbox-logo.png",
+      "imageURL": "https://raw.githubusercontent.com/mariusandrita/Nuvio/main/images/down-icon.png",
       "isEnabled": true,
-      "name": "TB⬇",
-      "tagColor": "#00000000",
-      "borderColor": "#00000000",
+      "name": "❌ TB",
+      "tagColor": "#4a0000",
+      "borderColor": "#ff4444",
       "textColor": "#FFFFFF",
       "tagStyle": "filled and bordered",
       "type": "filter"
@@ -57,10 +57,13 @@
       "groupId": "bf-source",
       "pattern": "\\[TORRENT|(?i)^Torrentio",
       "imageURL": "https://raw.githubusercontent.com/mariusandrita/Nuvio/main/images/down-icon.png",
+      "isEnabled": true,
+      "name": "Torrent",
       "tagColor": "#1a1a2e",
       "borderColor": "#4a9eff",
       "textColor": "#ffffff",
-      "tagStyle": "rounded"
+      "tagStyle": "rounded",
+      "type": "filter"
     },
     {
       "borderColor": "#FF00FF37",
